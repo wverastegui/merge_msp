@@ -2,7 +2,6 @@ import argparse
 import glob
 from itertools import chain
 
-
 from matchms.importing import load_from_msp
 from matchms.exporting import save_as_msp   
 
@@ -18,7 +17,6 @@ def write_spectra(filenames, outfile):
     spectra = read_spectra(filenames)
     outfilename = outfile + ".msp"
     save_as_msp(spectra, outfilename)
-
 
 def merge_spectra(filename_extension, outfilename):
     filenames = read_filenames(filename_extension)
