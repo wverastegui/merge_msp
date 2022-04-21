@@ -5,8 +5,12 @@ from itertools import chain
 from matchms.importing import load_from_msp
 from matchms.exporting import save_as_msp   
 
-def read_filenames():
-    filenames = glob.glob('*.msp', recursive=True)
+#def read_filenames():
+#    filenames = glob.glob('*.msp', recursive=True)
+#    return filenames
+
+def read_filenames(inputtext):
+    filenames = glob.glob(input(inputtext), recursive=True)
     return filenames
 
 def read_spectra(filenames):

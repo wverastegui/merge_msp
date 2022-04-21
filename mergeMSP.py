@@ -1,13 +1,10 @@
 import argparse
-import glob
 from itertools import chain
 
 from matchms.importing import load_from_msp
-from matchms.exporting import save_as_msp   
+from matchms.exporting import save_as_msp
 
-def read_filenames(filename_extension):
-    filenames = glob.glob('*.' + filename_extension, recursive=True)
-    return filenames
+
 
 def read_spectra(filenames):
     spectra = list(chain(*[load_from_msp(file) for file in filenames]))
@@ -18,19 +15,19 @@ def write_spectra(filenames, outfile):
     outfilename = outfile + ".msp"
     save_as_msp(spectra, outfilename)
 
-def merge_spectra(filename_extension, outfilename):
-    filenames = read_filenames(filename_extension)
+
+def merge_spectra(filenames, outfilename):
     return write_spectra(filenames, outfilename)
 
 
 
 listarg = argparse.ArgumentParser()
-listarg.add_argument('--filename_extension', type=str) 
+listarg.add_argument('--filenames', nargs='+', type=str) 
 listarg.add_argument('--outfilename', type=str) 
-args=listarg.parse_args()
+args = listarg.parse_args()
 outfilename = args.outfilename
-filename_extension = args.filename_extension
+filenames = args.filenames
 
 if __name__ == "__main__":
-    merge_spectra(filename_extension, outfilename)
+    merge_spectra(filenames, outfilename)
 
