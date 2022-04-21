@@ -4,18 +4,18 @@
          <requirement type="package" version="0.14.0">matchms</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        python3  $__tool_directory__/mergeMSP.py  --filenames $input --outfilename   '$output'
+        python3  $__tool_directory__/mergeMSP.py  --filenames '$input' --outfilename   '$outfile'
     ]]></command>
     <inputs>
-        <param name="$input" type="data" format="msp" multiple="true"/>
+        <param name="input" type="data" format="msp" multiple="true"/>
     </inputs>
     <outputs>
-        <param name="output" type="data" format="msp" />
+        <data name="outfile" format="msp" />
     </outputs>
     <tests>
          <test>
-            <param name="msp" format="msp"  />
-            <output name="outfilename" value="sample_output.msp"/>
+            <param name="input" value="1-NITROPYRENE.msp, 23-DICHLOROPHENOL.msp, 24-DICHLOROPHENOL.msp" ftype="msp"  />
+            <output name="outfile" value="sample_output.msp" ftype="msp"/>
         </test>
     </tests> 
     <help><![CDATA[
