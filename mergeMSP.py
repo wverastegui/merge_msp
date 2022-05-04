@@ -20,13 +20,12 @@ def merge_spectra(filenames, outfilename):
 
 
 listarg = argparse.ArgumentParser()
-listarg.add_argument('--filenames', type=str) 
+listarg.add_argument('--filenames', nargs='+', type=str) 
 listarg.add_argument('--outfilename', type=str) 
 args = listarg.parse_args()
 outfilename = args.outfilename
 filenames = args.filenames
 
 if __name__ == "__main__":
-    files = str(filenames).split(",")
-    merge_spectra(files, outfilename)
+    merge_spectra(filenames, outfilename)
 

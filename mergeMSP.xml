@@ -1,10 +1,12 @@
-<tool id="mergeMSP" name="merge spectra" version="0.1.0" python_template_version="3.5">
-    <description>Merge MSP spectra in a single file</description>
+<tool id="mergeMSP1" name="merge spectra" version="0.1.0" python_template_version="3.5">
+    <description>Merge MSP handle input</description>
     <requirements>
          <requirement type="package" version="0.14.0">matchms</requirement>
     </requirements>
-    <command detect_errors="aggressive"><![CDATA[
-        python3  $__tool_directory__/mergeMSP.py  --filenames '$input' --outfilename   '$outfile' 
+    <command detect_errors="exit_code"><![CDATA[
+       #set file = str("' '").join([str($f) for $f in $input])
+        python3  $__tool_directory__/mergeMSP.py  --filenames '$file' --outfilename   '$outfile'
+    
     ]]></command>
     <inputs>
         <param name="input" type="data" format="msp" multiple="true"/>
