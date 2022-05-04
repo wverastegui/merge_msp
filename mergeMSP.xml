@@ -19,8 +19,8 @@
             <param name="input">
               <collection type="paired">
                 <element name="input" value="1-NITROPYRENE.msp"/>
-                <element name="input" value="23-DICHLOROPHENOL.msp"/>
-                <element name="input" value="24-DICHLOROPHENOL.msp"/>
+                <element name="input" value="2,3-DICHLOROPHENOL.msp"/>
+                <element name="input" value="2,4-DICHLOROPHENOL.msp"/>
               </collection>
             </param>
             <output name="outfile" file="sample_output.msp" ftype="msp" />
