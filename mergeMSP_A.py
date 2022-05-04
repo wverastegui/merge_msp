@@ -5,7 +5,6 @@ from matchms.importing import load_from_msp
 from matchms.exporting import save_as_msp
 
 
-
 def read_spectra(filenames):
     spectra = list(chain(*[load_from_msp(file) for file in filenames]))
     return spectra
